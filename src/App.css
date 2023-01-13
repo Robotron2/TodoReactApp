@@ -1,1 +1,78 @@
+:root {
+	--color-default: #000;
+	--color-brown: #cc894d;
+	--darkBlue: #181824;
+	--color-white: #fff;
+	--color-darkBlue: #25273c;
+}
 
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
+}
+
+body {
+	background-image: url("./components/books.jpg");
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.gradient {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	/* background: linear-gradient(to right, green, red); */
+	background: linear-gradient(to right, #31179c, #4a37b7, #6b36ac, #5d1986, #701b79);
+	opacity: 0.8;
+	height: 100%;
+	z-index: 20;
+	/* width: 100%; */
+	/* background: linear-gradient(); */
+}
+
+.solid-color-container {
+	position: absolute;
+	background-color: var(--darkBlue);
+	z-index: 30;
+	top: 300px;
+	width: 100%;
+	height: 71%;
+}
+
+.todo-main {
+	color: var(--color-white);
+	background: transparent;
+	/* background-color: #cc894d; */
+	width: 36%;
+	margin: -220px auto;
+	height: 20vmax;
+	padding: -10px;
+}
+
+.todo-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 25px;
+}
+
+.todo-header h4 {
+	font-size: 2rem;
+	letter-spacing: 10px;
+}
+
+.theme-btn {
+	font-size: 2.5rem;
+}
+
+.todo-input {
+	display: flex;
+	width: 94%;
+	background-color: var(--color-darkBlue);
+	padding: 20px 30px;
+	justify-content: space-around;
+	margin: 30px auto;
+}
