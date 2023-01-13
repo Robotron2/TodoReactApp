@@ -3,7 +3,7 @@ import TodoHeader from "./TodoHeader"
 
 const Home = () => {
 	const [newTodo, setNewTodo] = useState("Add todo")
-	const [allTodos, setAllTodos] = useState([])
+	const [allTodos, setAllTodos] = useState(["Hello", "Theo", "Etc"])
 
 	const handleChange = (e) => {
 		setNewTodo(e.target.value)
@@ -30,33 +30,24 @@ const Home = () => {
 							</div>
 						</form>
 						<div class="todos-container">
-							<div class="todo-border">
-								<div class="todos">
-									<label class="container">
-										<input type="checkbox" />
-										<span class="checkmark"></span>
-									</label>
-									<p class="todo-item">This is a todo</p>
+							{allTodos.map((todo) => {
+								return (
+									<div className="todo-border">
+										<div className="todos">
+											<label className="container">
+												<input type="checkbox" />
+												<span class="checkmark"></span>
+											</label>
+											<p class="todo-item">{todo}</p>
 
-									<span class="remove-todo">
-										<i class="fa fa-trash-o" aria-hidden="true"></i>
-									</span>
-								</div>
-							</div>
+											<span class="remove-todo">
+												<i class="fa fa-trash-o" aria-hidden="true"></i>
+											</span>
+										</div>
+									</div>
+								)
+							})}
 
-							<div class="todo-border">
-								<div class="todos">
-									<label class="container">
-										<input type="checkbox" />
-										<span class="checkmark"></span>
-									</label>
-									<p class="todo-item">This is a todo</p>
-
-									<span class="remove-todo">
-										<i class="fa fa-trash-o" aria-hidden="true"></i>
-									</span>
-								</div>
-							</div>
 							<div class="mini-nav">
 								<p>5 items left</p>
 								<div class="todo-type">
