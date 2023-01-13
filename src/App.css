@@ -155,3 +155,36 @@ body {
 .text-input.active {
 	outline: none;
 }
+
+/* Todo */
+.todos-container {
+	background-color: var(--color-darkBlue);
+	width: 94%;
+	margin: 0 auto;
+}
+
+.todo-border {
+	width: 100%;
+	padding: 10px 30px;
+	border-bottom: 1px solid rgba(175, 173, 173, 0.24);
+}
+
+.todos {
+	display: flex;
+	margin-bottom: 5px;
+	/* border-bottom: 0.1px solid grey; */
+	color: lightgray;
+	/* padding: 0.2rem; */
+	font-weight: 600;
+	/* padding: 10px; */
+}
+
+.todo-item {
+	padding: 0.4rem;
+	font-size: 1.1rem;
+	width: 100%;
+}
+
+.remove-todo {
+	margin: 0 0 0 auto;
+}
