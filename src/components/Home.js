@@ -1,7 +1,18 @@
+import { useState } from "react"
 import TodoHeader from "./TodoHeader"
-import TodoInput from "./TodoInput"
 
 const Home = () => {
+	const [newTodo, setNewTodo] = useState("Add todo")
+	const [allTodos, setAllTodos] = useState([])
+
+	const handleChange = (e) => {
+		setNewTodo(e.target.value)
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+	}
+
 	return (
 		<div>
 			<div className="gradient"></div>
@@ -9,7 +20,15 @@ const Home = () => {
 				<div className="solid-color-container">
 					<div className="todo-main">
 						<TodoHeader />
-						<TodoInput />
+						<form onSubmit={handleSubmit}>
+							<div class="todo-input ">
+								<label class="container">
+									<input type="checkbox" disabled />
+									<span class="checkmark"></span>
+								</label>
+								<input type="text" placeholder="Write a to-do" class="text-input" onChange={handleChange} />
+							</div>
+						</form>
 						<div class="todos-container">
 							<div class="todo-border">
 								<div class="todos">
