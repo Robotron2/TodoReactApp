@@ -186,7 +186,8 @@ body {
 }
 
 .remove-todo {
-	margin: 0 0 0 auto;
+	margin: 5px 0 0 auto;
+	font-size: 1.1rem;
 }
 
 /* Mini Nav */
@@ -195,6 +196,7 @@ body {
 	justify-content: space-between;
 	padding: 20px 30px;
 	color: rgba(128, 128, 128, 0.895);
+	cursor: pointer;
 }
 
 .todo-type ul,
@@ -206,6 +208,7 @@ body {
 .todo-type ul li,
 .mobile-todo-type ul li {
 	margin: 0 5px;
+	/* cursor: pointer; */
 }
 
 .mini-nav p:hover,

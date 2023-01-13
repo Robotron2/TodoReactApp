@@ -19,7 +19,9 @@ const Home = () => {
 									</label>
 									<p class="todo-item">This is a todo</p>
 
-									<span class="remove-todo">X</span>
+									<span class="remove-todo">
+										<i class="fa fa-trash-o" aria-hidden="true"></i>
+									</span>
 								</div>
 							</div>
 
@@ -31,7 +33,9 @@ const Home = () => {
 									</label>
 									<p class="todo-item">This is a todo</p>
 
-									<span class="remove-todo">X</span>
+									<span class="remove-todo">
+										<i class="fa fa-trash-o" aria-hidden="true"></i>
+									</span>
 								</div>
 							</div>
 							<div class="mini-nav">
