@@ -188,3 +188,32 @@ body {
 .remove-todo {
 	margin: 0 0 0 auto;
 }
+
+/* Mini Nav */
+.mini-nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 30px;
+	color: rgba(128, 128, 128, 0.895);
+}
+
+.todo-type ul,
+.mobile-todo-type ul {
+	display: flex;
+	list-style-type: none;
+}
+
+.todo-type ul li,
+.mobile-todo-type ul li {
+	margin: 0 5px;
+}
+
+.mini-nav p:hover,
+.todo-type ul li:hover,
+.mobile-todo-type ul li:hover {
+	color: var(--color-white);
+}
+
+.active {
+	color: #445c99;
+}
