@@ -217,3 +217,138 @@ body {
 .active {
 	color: #445c99;
 }
+
+/* Media Queries */
+
+@media (min-width: 1299px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 46%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 1298px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 56%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 1000px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 56%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 998px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 66%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 878px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 66%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 876px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 70%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 800px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 72%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 750px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 76%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 699px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 88%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 620px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 90%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 570px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 92%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
+@media (max-width: 550px) {
+	.todo-main {
+		color: var(--color-white);
+		background: transparent;
+		/* background-color: #cc894d; */
+		width: 98%;
+		margin: -220px auto;
+		height: 20vmax;
+		padding: -10px;
+	}
+}
