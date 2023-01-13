@@ -352,3 +352,23 @@ body {
 		padding: -10px;
 	}
 }
+
+/* Mini Nav */
+
+@media (max-width: 525px) {
+	.mini-nav {
+		padding: 10px 15px;
+
+		width: 100%;
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 450px) {
+	.mini-nav {
+		padding: 10px 8px;
+
+		width: 100%;
+		font-size: 0.8rem;
+	}
+}
