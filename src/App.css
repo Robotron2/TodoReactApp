@@ -372,3 +372,42 @@ body {
 		font-size: 0.8rem;
 	}
 }
+
+/* Todos */
+@media (max-width: 525px) {
+	.todo-item {
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+}
+
+/* Todo-Input */
+
+@media (max-width: 475px) {
+	.todo-input,
+	.todo-border {
+		padding: 8px 20px;
+	}
+}
+
+@media (max-width: 400px) {
+	* {
+		font-size: 0.8rem;
+	}
+
+	.text-input {
+		font-size: 0.9rem;
+	}
+
+	.checkmark {
+		height: 20px;
+		width: 20px;
+	}
+
+	.container .checkmark:after {
+		left: 6px;
+		top: 3px;
+		width: 3px;
+		height: 8px;
+	}
+}
