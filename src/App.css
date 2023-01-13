@@ -138,3 +138,20 @@ body {
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
+
+/* Text Input */
+.text-input {
+	width: 100%;
+	padding: 0.3rem;
+	border: 0;
+	font-size: medium;
+	background: transparent;
+
+	color: var(--color-white);
+}
+
+.text-input:focus,
+.text-input:hover,
+.text-input.active {
+	outline: none;
+}
