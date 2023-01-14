@@ -4,9 +4,9 @@ const TodoHeader = () => {
 			<div>
 				<h4>TODO</h4>
 			</div>
-			<div class="theme-btn">
+			<div className="theme-btn">
 				{/* <i class="fa fa-moon-o" aria-hidden="true"></i> */}
-				<i class="fa fa-sun-o" aria-hidden="true"></i>
+				<i className="fa fa-sun-o" aria-hidden="true"></i>
 			</div>
 		</div>
 	)

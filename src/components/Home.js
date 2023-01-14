@@ -2,15 +2,18 @@ import { useState } from "react"
 import TodoHeader from "./TodoHeader"
 
 const Home = () => {
-	const [newTodo, setNewTodo] = useState("Add todo")
-	const [allTodos, setAllTodos] = useState(["Hello", "Theo", "Etc"])
+	const [newTodo, setNewTodo] = useState("")
+	const [allTodos, setAllTodos] = useState([])
 
 	const handleChange = (e) => {
 		setNewTodo(e.target.value)
+		console.log(newTodo)
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		setAllTodos(allTodos)
+		allTodos.push(newTodo)
 	}
 
 	return (
@@ -21,38 +24,37 @@ const Home = () => {
 					<div className="todo-main">
 						<TodoHeader />
 						<form onSubmit={handleSubmit}>
-							<div class="todo-input ">
-								<label class="container">
-									<input type="checkbox" disabled />
-									<span class="checkmark"></span>
+							<div className="todo-input ">
+								<input type="text" placeholder="Write a to-do" className="text-input" value={newTodo} onChange={handleChange} />
+								<label className="container">
+									<i class="fa-solid fa-plus"></i>
 								</label>
-								<input type="text" placeholder="Write a to-do" class="text-input" onChange={handleChange} />
 							</div>
 						</form>
-						<div class="todos-container">
-							{allTodos.map((todo) => {
+						<div className="todos-container">
+							{allTodos.map((todo, index) => {
 								return (
-									<div className="todo-border">
+									<div className="todo-border" key={index + 1}>
 										<div className="todos">
 											<label className="container">
 												<input type="checkbox" />
-												<span class="checkmark"></span>
+												<span className="checkmark"></span>
 											</label>
-											<p class="todo-item">{todo}</p>
+											<p className="todo-item">{todo}</p>
 
-											<span class="remove-todo">
-												<i class="fa fa-trash-o" aria-hidden="true"></i>
+											<span className="remove-todo">
+												<i className="fa fa-trash-o" aria-hidden="true"></i>
 											</span>
 										</div>
 									</div>
 								)
 							})}
 
-							<div class="mini-nav">
+							<div className="mini-nav">
 								<p>5 items left</p>
-								<div class="todo-type">
+								<div className="todo-type">
 									<ul>
-										<li class="active">All</li>
+										<li className="active">All</li>
 										<li>Active</li>
 										<li>Completed</li>
 									</ul>
@@ -61,10 +63,10 @@ const Home = () => {
 							</div>
 						</div>
 
-						<div class="todo-input mobile">
-							<div class="mobile-todo-type">
+						<div className="todo-input mobile">
+							<div className="mobile-todo-type">
 								<ul>
-									<li class="active">All</li>
+									<li className="active">All</li>
 									<li>Active</li>
 									<li>Completed</li>
 								</ul>

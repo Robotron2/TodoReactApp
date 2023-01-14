@@ -81,10 +81,11 @@ body {
 .container {
 	display: block;
 	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
+	padding-left: 25px;
+	top: 5px;
+	margin-bottom: 10px;
 	cursor: pointer;
-	font-size: 22px;
+	font-size: 20px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -146,8 +147,9 @@ body {
 	border: 0;
 	font-size: medium;
 	background: transparent;
-
 	color: var(--color-white);
+	border: 1px solid rgba(128, 128, 128, 0.24);
+	border-radius: 10px;
 }
 
 .text-input:focus,
