@@ -7,14 +7,21 @@ const Home = () => {
 
 	const handleChange = (e) => {
 		setNewTodo(e.target.value)
-		console.log(newTodo)
 	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		setAllTodos(allTodos)
+	const handleClick = () => {
 		allTodos.push(newTodo)
+		setAllTodos(allTodos)
+		localStorage.setItem("TodoList", JSON.stringify(allTodos))
+		console.log(allTodos)
+		setNewTodo("")
 	}
+
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault()
+	// 	setAllTodos(allTodos)
+	// 	allTodos.push(newTodo) onSubmit={handleSubmit}
+	// }
 
 	return (
 		<div>
@@ -23,14 +30,14 @@ const Home = () => {
 				<div className="solid-color-container">
 					<div className="todo-main">
 						<TodoHeader />
-						<form onSubmit={handleSubmit}>
-							<div className="todo-input ">
-								<input type="text" placeholder="Write a to-do" className="text-input" value={newTodo} onChange={handleChange} />
-								<label className="container">
-									<i class="fa-solid fa-plus"></i>
-								</label>
-							</div>
-						</form>
+
+						<div className="todo-input ">
+							<input type="text" placeholder="Write a to-do" className="text-input" value={newTodo} onChange={handleChange} />
+							<label className="container" onClick={handleClick}>
+								<i class="fa-solid fa-plus"></i>
+							</label>
+						</div>
+
 						<div className="todos-container">
 							{allTodos.map((todo, index) => {
 								return (
