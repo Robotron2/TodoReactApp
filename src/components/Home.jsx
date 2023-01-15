@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 import TodoHeader from "./TodoHeader"
 
@@ -12,9 +13,13 @@ const Home = () => {
 	const handleClick = () => {
 		allTodos.push(newTodo)
 		setAllTodos(allTodos)
-		localStorage.setItem("TodoList", JSON.stringify(allTodos))
+		// localStorage.setItem("TodoList", JSON.stringify(allTodos))
 		console.log(allTodos)
 		setNewTodo("")
+	}
+
+	const handleDelete = (id) => {
+		console.log(id)
 	}
 
 	// const handleSubmit = (e) => {
@@ -50,7 +55,7 @@ const Home = () => {
 											<p className="todo-item">{todo}</p>
 
 											<span className="remove-todo">
-												<i className="fa fa-trash-o" aria-hidden="true"></i>
+												<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
 											</span>
 										</div>
 									</div>
