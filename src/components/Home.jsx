@@ -15,14 +15,19 @@ const Home = () => {
 		// console.log(newTodo)
 		// console.log(allTodos)
 
-		allTodos.push(newTodo)
-		setAllTodos(allTodos)
-
-		localStorage.setItem("TodoList", JSON.stringify(allTodos)) // Save items that fulfills all conditions
-
-		setTimeout(() => {
+		let matchFound = allTodos.filter((todo) => {
+			return todo === newTodo
+		})
+		if (matchFound.length > 0) {
 			setNewTodo("")
-		}, 1)
+		} else {
+			allTodos.push(newTodo)
+			setAllTodos(allTodos)
+			localStorage.setItem("TodoList", JSON.stringify(allTodos)) // Save items that fulfills all conditions
+			setTimeout(() => {
+				setNewTodo("")
+			}, 1)
+		}
 	}
 
 	const handleDelete = (id) => {
