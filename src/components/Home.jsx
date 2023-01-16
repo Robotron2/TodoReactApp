@@ -5,8 +5,9 @@ import TodoHeader from "./TodoHeader"
 
 const Home = () => {
 	const [newTodo, setNewTodo] = useState("")
+	const [isEmpty, setIsEmpty] = useState(false)
 	// const [todoAvailable, setTodoAvailable] = useState(false)
-	const [allTodos, setAllTodos] = useState(["A", "B"])
+	const [allTodos, setAllTodos] = useState([])
 	// localStorage.setItem("TodoList", JSON.stringify(["Hello, Hello"]))
 
 	const handleChange = (e) => {
@@ -41,7 +42,12 @@ const Home = () => {
 	}
 
 	const renderList = () => {
-		setAllTodos(JSON.parse(localStorage.getItem("TodoLists")))
+		console.log(JSON.parse(localStorage.getItem("TodoLists")))
+		if (JSON.parse(localStorage.getItem("TodoLists")) === null) {
+			setIsEmpty(true)
+		} else {
+			setAllTodos(JSON.parse(localStorage.getItem("TodoLists")))
+		}
 	}
 
 	useEffect(() => {
