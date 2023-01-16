@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import TodoHeader from "./TodoHeader"
 
@@ -11,11 +12,16 @@ const Home = () => {
 	}
 
 	const handleClick = () => {
+		// allTodos.push()
+		// console.log(newTodo)
+		// console.log(allTodos)
+
 		allTodos.push(newTodo)
 		setAllTodos(allTodos)
-		// localStorage.setItem("TodoList", JSON.stringify(allTodos))
-		console.log(allTodos)
-		setNewTodo("")
+
+		setTimeout(() => {
+			setNewTodo("")
+		}, 1)
 	}
 
 	const handleDelete = (id) => {
