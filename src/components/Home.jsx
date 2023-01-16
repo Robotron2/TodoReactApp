@@ -1,5 +1,4 @@
 import React from "react"
-import { useEffect } from "react"
 import { useState } from "react"
 import TodoHeader from "./TodoHeader"
 
@@ -18,6 +17,8 @@ const Home = () => {
 
 		allTodos.push(newTodo)
 		setAllTodos(allTodos)
+
+		localStorage.setItem("TodoList", JSON.stringify(allTodos)) // Save items that fulfills all conditions
 
 		setTimeout(() => {
 			setNewTodo("")
