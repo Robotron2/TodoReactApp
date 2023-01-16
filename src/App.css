@@ -191,6 +191,7 @@ body {
 .remove-todo {
 	margin: 5px 0 0 auto;
 	font-size: 1.1rem;
+	cursor: pointer;
 }
 
 /* Mini Nav */

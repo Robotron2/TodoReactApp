@@ -1,10 +1,19 @@
 import React from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import TodoHeader from "./TodoHeader"
 
 const Home = () => {
 	const [newTodo, setNewTodo] = useState("")
 	const [allTodos, setAllTodos] = useState([])
+
+	const checkTodo = () => {
+		let checkTodo = JSON.parse(localStorage.getItem("TodoList"))
+		console.log(checkTodo)
+		if (checkTodo.length > 0) {
+			setAllTodos(checkTodo)
+		}
+	}
 
 	const handleChange = (e) => {
 		setNewTodo(e.target.value)
@@ -39,6 +48,10 @@ const Home = () => {
 	// 	setAllTodos(allTodos)
 	// 	allTodos.push(newTodo) onSubmit={handleSubmit}
 	// }
+
+	useEffect(() => {
+		checkTodo()
+	}, [])
 
 	return (
 		<div>
