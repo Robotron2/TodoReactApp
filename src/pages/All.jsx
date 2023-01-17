@@ -109,7 +109,8 @@ const All = () => {
 														<span className="checkmark"></span>
 													</label>
 												)}
-												<p className="todo-item">{todo.todoTitle}</p>
+												{!todo.isChecked && <p className="todo-item">{todo.todoTitle}</p>}
+												{todo.isChecked && <p className="todo-item strike-through">{todo.todoTitle}</p>}
 
 												<span className="remove-todo">
 													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
@@ -124,13 +125,15 @@ const All = () => {
 									<p>5 items left</p>
 									<div className="todo-type">
 										<ul>
-											<li className="active">
-												<Link to={"/"}>All</Link>
+											<li>
+												<Link to={"/"} style={{ color: "#445c99" }}>
+													All
+												</Link>
 											</li>
-											<li className="active">
+											<li>
 												<Link to={"/active"}>Active</Link>
 											</li>
-											<li className="active">
+											<li>
 												<Link to={"/completed"}>Completed</Link>
 											</li>
 										</ul>
@@ -144,13 +147,15 @@ const All = () => {
 							<div className="todo-input mobile">
 								<div className="mobile-todo-type">
 									<ul>
-										<li className="active">
-											<Link to={"/"}>All</Link>
+										<li>
+											<Link to={"/"} style={{ color: "#445c99" }}>
+												All
+											</Link>
 										</li>
-										<li className="active">
+										<li>
 											<Link to={"/active"}>Active</Link>
 										</li>
-										<li className="active">
+										<li>
 											<Link to={"/completed"}>Completed</Link>
 										</li>
 									</ul>

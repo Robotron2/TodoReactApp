@@ -206,6 +206,11 @@ body {
 	width: 100%;
 }
 
+.strike-through {
+	text-decoration: line-through;
+	color: rgba(128, 128, 128, 0.575);
+}
+
 .remove-todo {
 	margin: 5px 0 0 auto;
 	font-size: 1.1rem;
@@ -244,9 +249,9 @@ body {
 	color: var(--color-white);
 }
 
-.active {
+/* .activeLink a {
 	color: #445c99;
-}
+} */
 
 /* Media Queries */
 
