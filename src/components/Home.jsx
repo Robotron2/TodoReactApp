@@ -17,9 +17,7 @@ const Home = () => {
 	const handleClick = () => {
 		allTodos.push(newTodo)
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos)) // Save items that fulfills all conditions
-
-		// setAllTodos(allTodos)
-		console.log(allTodos)
+		setAllTodos(allTodos)
 
 		// let matchFound = allTodos.filter((todo) => {
 		// 	return todo === newTodo
@@ -28,7 +26,7 @@ const Home = () => {
 		// 	setNewTodo("")
 		// } else {
 		// 	allTodos.push(newTodo)
-		// 	setAllTodos(allTodos)
+		// setAllTodos(allTodos)
 
 		// 	console.log(setAllTodos(allTodos))
 		// }
@@ -47,6 +45,7 @@ const Home = () => {
 			setIsEmpty(true)
 		} else {
 			setAllTodos(JSON.parse(localStorage.getItem("TodoLists")))
+			// setIsEmpty(false)
 		}
 	}
 
@@ -76,46 +75,58 @@ const Home = () => {
 						</div>
 
 						<div className="todos-container">
-							{allTodos.map((todo, index) => {
-								return (
-									<div className="todo-border" key={index + 1}>
-										<div className="todos">
-											<label className="container">
-												<input type="checkbox" />
-												<span className="checkmark"></span>
-											</label>
-											<p className="todo-item">{todo}</p>
+							{isEmpty && (
+								<div className="todo-empty">
+									<p>
+										Empty Todo <span>...</span>
+									</p>
+								</div>
+							)}
+							{!isEmpty &&
+								allTodos.map((todo, index) => {
+									return (
+										<div className="todo-border" key={index + 1}>
+											<div className="todos">
+												<label className="container">
+													<input type="checkbox" />
+													<span className="checkmark"></span>
+												</label>
+												<p className="todo-item">{todo}</p>
 
-											<span className="remove-todo">
-												<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
-											</span>
+												<span className="remove-todo">
+													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
+												</span>
+											</div>
 										</div>
-									</div>
-								)
-							})}
+									)
+								})}
 
-							<div className="mini-nav">
-								<p>5 items left</p>
-								<div className="todo-type">
+							{!isEmpty && (
+								<div className="mini-nav">
+									<p>5 items left</p>
+									<div className="todo-type">
+										<ul>
+											<li className="active">All</li>
+											<li>Active</li>
+											<li>Completed</li>
+										</ul>
+									</div>
+									<p>Clear completed</p>
+								</div>
+							)}
+						</div>
+
+						{!isEmpty && (
+							<div className="todo-input mobile">
+								<div className="mobile-todo-type">
 									<ul>
 										<li className="active">All</li>
 										<li>Active</li>
 										<li>Completed</li>
 									</ul>
 								</div>
-								<p>Clear completed</p>
 							</div>
-						</div>
-
-						<div className="todo-input mobile">
-							<div className="mobile-todo-type">
-								<ul>
-									<li className="active">All</li>
-									<li>Active</li>
-									<li>Completed</li>
-								</ul>
-							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			</div>

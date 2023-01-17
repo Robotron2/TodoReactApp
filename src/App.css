@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@600&display=swap");
+
 :root {
 	--color-default: #000;
 	--color-brown: #cc894d;
@@ -6,11 +8,16 @@
 	--color-darkBlue: #25273c;
 }
 
+:root {
+	--font-default: "Montserrat", sans-serif;
+	--font-title: "Open Sans", sans-serif;
+}
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "Montserrat", sans-serif;
+	font-family: var(--font-default);
 }
 
 body {
@@ -160,6 +167,17 @@ body {
 }
 
 /* Todo */
+.todo-empty {
+	text-align: center;
+	padding: 2.5% 5%;
+}
+.todo-empty p {
+	font-size: 1.2rem;
+	padding: 1% 2%;
+	letter-spacing: 2px;
+	line-height: 2;
+}
+
 .todos-container {
 	background-color: var(--color-darkBlue);
 	width: 94%;
