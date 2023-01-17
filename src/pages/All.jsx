@@ -1,9 +1,9 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
-import TodoHeader from "./TodoHeader"
+import TodoHeader from "../components/TodoHeader"
 
-const Home = () => {
+const All = () => {
 	const [newTodo, setNewTodo] = useState("")
 	const [isEmpty, setIsEmpty] = useState(false)
 	// const [todoAvailable, setTodoAvailable] = useState(false)
@@ -132,4 +132,4 @@ const Home = () => {
 	)
 }
 
-export default Home
+export default All
