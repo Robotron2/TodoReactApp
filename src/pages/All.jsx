@@ -6,9 +6,9 @@ import TodoHeader from "../components/TodoHeader"
 const All = () => {
 	// const [isEmpty, setIsEmpty] = useState(true)
 	const [isEmpty, setIsEmpty] = useState(true)
-	const [isChecked, setIsChecked] = useState(false)
 	const [todoContent, setTodoContent] = useState("")
 	const [allTodos, setAllTodos] = useState([])
+	let isChecked = false
 
 	const checkLocalStorage = () => {
 		let checkTodo = JSON.parse(localStorage.getItem("TodoLists"))
