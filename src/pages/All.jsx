@@ -1,13 +1,22 @@
 import React from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import TodoHeader from "../components/TodoHeader"
 
 const All = () => {
 	// const [isEmpty, setIsEmpty] = useState(true)
-	const [isEmpty, setIsEmpty] = useState(false)
+	const [isEmpty, setIsEmpty] = useState(true)
+	const [isChecked, setIsChecked] = useState(false)
 	const [todoContent, setTodoContent] = useState("")
+	const [allTodos, setAllTodos] = useState([])
 
-	let allTodos = [1, 2, 3, 4, 5, 6]
+	const checkLocalStorage = () => {
+		let checkTodo = JSON.parse(localStorage.getItem("TodoLists"))
+		if (checkTodo !== null && checkTodo.length !== 0) {
+			setIsEmpty(false)
+			setAllTodos(checkTodo)
+		}
+	}
 
 	const handleChange = (e) => {
 		setTodoContent(e.target.value)
@@ -16,16 +25,43 @@ const All = () => {
 	const handleClick = () => {
 		//handleClick Creates a newTodo Item
 
-		let newTodo = {
-			todoTitle: todoContent,
-			id: Math.floor(Math.random() * 1024)
+		if (todoContent !== "") {
+			let filterContent = allTodos.filter((todo) => todo.todoTitle === todoContent)
+			// console.log(filterContent.length)
+			// console.log(allTodos)
+			// console.log("allTodos")
+
+			if (filterContent.length === 0) {
+				let newTodo = {
+					todoTitle: todoContent,
+					id: Math.floor(Math.random() * 1024),
+					isChecked
+				}
+
+				allTodos.push(newTodo)
+
+				localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+
+				setIsEmpty(true)
+
+				setTimeout(() => {
+					setTodoContent("")
+				}, 1)
+			} else {
+				setTodoContent("")
+			}
+		} else {
+			console.log("Cannot be empty")
 		}
-		console.log(newTodo.id)
 	}
 
 	const handleDelete = () => {
 		console.log("Deleted")
 	}
+
+	useEffect(() => {
+		checkLocalStorage()
+	}, [todoContent])
 
 	return (
 		<div>
@@ -57,7 +93,7 @@ const All = () => {
 													<input type="checkbox" />
 													<span className="checkmark"></span>
 												</label>
-												<p className="todo-item">{todo}</p>
+												<p className="todo-item">{todo.todoTitle}</p>
 
 												<span className="remove-todo">
 													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
