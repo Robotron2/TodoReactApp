@@ -9,6 +9,7 @@ const All = () => {
 	const [isEmpty, setIsEmpty] = useState(true)
 	const [todoContent, setTodoContent] = useState("")
 	const [allTodos, setAllTodos] = useState([])
+	const [checkIsChecked, setCheckIsChecked] = useState(false)
 	let isChecked = false
 
 	const checkLocalStorage = () => {
@@ -56,6 +57,12 @@ const All = () => {
 		}
 	}
 
+	const handleCheck = (todo) => {
+		console.log(todo)
+		todo.isChecked = true
+		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+	}
+
 	const handleDelete = () => {
 		console.log("Deleted")
 	}
@@ -90,10 +97,18 @@ const All = () => {
 									return (
 										<div className="todo-border" key={index + 1}>
 											<div className="todos">
-												<label className="container">
-													<input type="checkbox" />
-													<span className="checkmark"></span>
-												</label>
+												{!todo.isChecked && (
+													<label className="container" onClick={() => handleCheck(todo)}>
+														<input type="checkbox" />
+														<span className="checkmark"></span>
+													</label>
+												)}
+												{todo.isChecked && (
+													<label className="container" onClick={() => handleCheck(todo)}>
+														<input type="checkbox" disabled />
+														<span className="checkmark"></span>
+													</label>
+												)}
 												<p className="todo-item">{todo.todoTitle}</p>
 
 												<span className="remove-todo">
