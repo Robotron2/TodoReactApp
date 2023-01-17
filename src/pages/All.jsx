@@ -1,6 +1,7 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import TodoHeader from "../components/TodoHeader"
 
 const All = () => {
@@ -108,9 +109,15 @@ const All = () => {
 									<p>5 items left</p>
 									<div className="todo-type">
 										<ul>
-											<li className="active">All</li>
-											<li>Active</li>
-											<li>Completed</li>
+											<li className="active">
+												<Link to={"/"}>All</Link>
+											</li>
+											<li className="active">
+												<Link to={"/active"}>Active</Link>
+											</li>
+											<li className="active">
+												<Link to={"/completed"}>Completed</Link>
+											</li>
 										</ul>
 									</div>
 									<p>Clear completed</p>
@@ -122,9 +129,15 @@ const All = () => {
 							<div className="todo-input mobile">
 								<div className="mobile-todo-type">
 									<ul>
-										<li className="active">All</li>
-										<li>Active</li>
-										<li>Completed</li>
+										<li className="active">
+											<Link to={"/"}>All</Link>
+										</li>
+										<li className="active">
+											<Link to={"/active"}>Active</Link>
+										</li>
+										<li className="active">
+											<Link to={"/completed"}>Completed</Link>
+										</li>
 									</ul>
 								</div>
 							</div>

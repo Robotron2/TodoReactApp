@@ -226,6 +226,11 @@ body {
 	display: flex;
 	list-style-type: none;
 }
+.todo-type ul a,
+.mobile-todo-type ul a {
+	text-decoration: none;
+	color: rgba(128, 128, 128, 0.895);
+}
 
 .todo-type ul li,
 .mobile-todo-type ul li {
@@ -234,8 +239,8 @@ body {
 }
 
 .mini-nav p:hover,
-.todo-type ul li:hover,
-.mobile-todo-type ul li:hover {
+.todo-type ul li a:hover,
+.mobile-todo-type ul li a:hover {
 	color: var(--color-white);
 }
 
