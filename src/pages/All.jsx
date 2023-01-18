@@ -1,15 +1,16 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import TodoHeader from "../components/TodoHeader"
 
 const All = () => {
+	const navigate = useNavigate()
 	// const [isEmpty, setIsEmpty] = useState(true)
 	const [isEmpty, setIsEmpty] = useState(true)
 	const [todoContent, setTodoContent] = useState("")
 	const [allTodos, setAllTodos] = useState([])
-	const [checkIsChecked, setCheckIsChecked] = useState(false)
+	// const [checkIsChecked, setCheckIsChecked] = useState(false)
 	let isChecked = false
 
 	const checkLocalStorage = () => {
@@ -61,6 +62,7 @@ const All = () => {
 		console.log(todo)
 		todo.isChecked = true
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+		navigate("/")
 	}
 
 	const handleDelete = () => {

@@ -5,11 +5,15 @@ import TodoHeader from "../components/TodoHeader"
 
 const Active = () => {
 	const [isActive, setIsActive] = useState([])
+	const [notActive, setNotActive] = useState(false)
 
 	const checkActive = () => {
 		let activeTodos = JSON.parse(localStorage.getItem("TodoLists")).filter((todos) => todos.isChecked === false)
-		console.log(activeTodos)
-		// setIsActive(activeTodos)
+		if (activeTodos.length === 0) {
+			setNotActive(true)
+		} else {
+			setIsActive(activeTodos)
+		}
 	}
 
 	useEffect(() => {
@@ -18,9 +22,11 @@ const Active = () => {
 
 	return (
 		<div>
-			{isActive.map((activeTodo) => {
-				return <div key={activeTodo.id}>{activeTodo.todoTitle}</div>
-			})}
+			{notActive && <div>Hello, there are no active todos currently</div>}
+			{!notActive &&
+				isActive.map((activeTodo) => {
+					return <div key={activeTodo.id}>{activeTodo.todoTitle}</div>
+				})}
 		</div>
 	)
 
