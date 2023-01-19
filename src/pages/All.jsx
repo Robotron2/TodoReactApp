@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -68,8 +69,17 @@ const All = () => {
 		navigate("/")
 	}
 
-	const handleDelete = () => {
-		console.log("Deleted")
+	const handleDelete = (id) => {
+		// console.log(allTodos)
+		// console.log(id)
+		let undeletedTodos = allTodos.filter((todo) => {
+			return todo.id !== id
+		})
+		localStorage.setItem("TodoLists", JSON.stringify(undeletedTodos))
+		setAllTodos(undeletedTodos)
+		todoCounter()
+
+		console.log(undeletedTodos)
 	}
 
 	const handleClearCheck = () => {
@@ -133,8 +143,13 @@ const All = () => {
 												{!todo.isChecked && <p className="todo-item">{todo.todoTitle}</p>}
 												{todo.isChecked && <p className="todo-item strike-through">{todo.todoTitle}</p>}
 
-												<span className="remove-todo">
+												{/* <span className="remove-todo">
 													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
+												</span> */}
+												<span className="remove-todo">
+													<i aria-hidden="true" onClick={() => handleDelete(todo.id)}>
+														X
+													</i>
 												</span>
 											</div>
 										</div>
