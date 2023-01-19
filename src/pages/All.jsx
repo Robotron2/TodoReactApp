@@ -20,6 +20,7 @@ const All = () => {
 			setIsEmpty(false)
 			setAllTodos(checkTodo)
 		}
+		todoCounter()
 	}
 
 	const handleChange = (e) => {
@@ -63,6 +64,7 @@ const All = () => {
 		console.log(todo)
 		todo.isChecked = true
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+		todoCounter()
 		navigate("/")
 	}
 
@@ -75,17 +77,19 @@ const All = () => {
 		// console.log(allItems)
 		let checkedTodos = allItems.filter((todo) => todo.isChecked !== true)
 		localStorage.setItem("TodoLists", JSON.stringify(checkedTodos))
+		todoCounter()
 		setAllTodos(checkedTodos)
 	}
 
 	const todoCounter = () => {
 		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
-		console.log(allItems.length)
-		setCounter(allItems.length)
+		let leftTodos = allItems.filter((todo) => todo.isChecked === false)
+
+		console.log(leftTodos.length)
+		setCounter(leftTodos.length)
 	}
 
 	useEffect(() => {
-		todoCounter()
 		checkLocalStorage()
 	}, [todoContent])
 
