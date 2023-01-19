@@ -69,6 +69,14 @@ const All = () => {
 		console.log("Deleted")
 	}
 
+	const handleClearCheck = () => {
+		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
+		// console.log(allItems)
+		let checkedTodos = allItems.filter((todo) => todo.isChecked !== true)
+
+		setAllTodos(checkedTodos)
+	}
+
 	useEffect(() => {
 		checkLocalStorage()
 	}, [todoContent])
@@ -139,7 +147,7 @@ const All = () => {
 											</li>
 										</ul>
 									</div>
-									<p>Clear completed</p>
+									<p onClick={handleClearCheck}>Clear completed</p>
 								</div>
 							)}
 						</div>
