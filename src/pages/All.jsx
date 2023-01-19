@@ -73,7 +73,7 @@ const All = () => {
 		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
 		// console.log(allItems)
 		let checkedTodos = allItems.filter((todo) => todo.isChecked !== true)
-
+		localStorage.setItem("TodoLists", JSON.stringify(checkedTodos))
 		setAllTodos(checkedTodos)
 	}
 
