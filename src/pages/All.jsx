@@ -8,6 +8,7 @@ const All = () => {
 	const navigate = useNavigate()
 	// const [isEmpty, setIsEmpty] = useState(true)
 	const [isEmpty, setIsEmpty] = useState(true)
+	const [counter, setCounter] = useState(0)
 	const [todoContent, setTodoContent] = useState("")
 	const [allTodos, setAllTodos] = useState([])
 	// const [checkIsChecked, setCheckIsChecked] = useState(false)
@@ -77,7 +78,14 @@ const All = () => {
 		setAllTodos(checkedTodos)
 	}
 
+	const todoCounter = () => {
+		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
+		console.log(allItems.length)
+		setCounter(allItems.length)
+	}
+
 	useEffect(() => {
+		todoCounter()
 		checkLocalStorage()
 	}, [todoContent])
 
@@ -131,7 +139,7 @@ const All = () => {
 
 							{!isEmpty && (
 								<div className="mini-nav">
-									<p>5 items left</p>
+									<p>{counter} left</p>
 									<div className="todo-type">
 										<ul>
 											<li>
