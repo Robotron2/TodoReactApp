@@ -96,9 +96,7 @@ const All = () => {
 		let leftTodos = allItems.filter((todo) => todo.isChecked === false)
 
 		// console.log(leftTodos.length)
-		if (leftTodos.length === 0) {
-			setIsEmpty(true)
-		}
+
 		setCounter(leftTodos.length)
 	}
 
@@ -115,8 +113,11 @@ const All = () => {
 						<TodoHeader />
 						<div className="todo-input ">
 							<input type="text" placeholder="Write a to-do" className="text-input" onChange={handleChange} value={todoContent} />
-							<label className="container" onClick={handleClick}>
+							{/* <label className="container" onClick={handleClick}>
 								<i className="fa-solid fa-plus"></i>
+							</label> */}
+							<label className="container" onClick={handleClick}>
+								<i className="fa-solid fa-plus">+ </i>
 							</label>
 						</div>
 

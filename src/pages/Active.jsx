@@ -1,6 +1,7 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import TodoHeader from "../components/TodoHeader"
 
 const Active = () => {
@@ -24,15 +25,6 @@ const Active = () => {
 		checkActive()
 	}, [])
 
-	// return (
-	// 	<div>
-	// 		{notActive && <div>Hello, there are no active todos currently</div>}
-	// 		{!notActive &&
-	// 			isActive.map((activeTodo) => {
-	// 				return <div key={activeTodo.id}>{activeTodo.todoTitle}</div>
-	// 			})}
-	// 	</div>
-	// )
 	return (
 		<div>
 			<div className="gradient"></div>
@@ -41,9 +33,9 @@ const Active = () => {
 					<div className="todo-main">
 						<TodoHeader />
 						<div className="todo-input ">
-							<input type="text" placeholder="Write a to-do" className="text-input" />
+							<input type="text" placeholder="Write a to-do" className="text-input" disabled />
 							<label className="container">
-								<i className="fa-solid fa-plus"></i>
+								<i className="fa-solid fa-plus">+</i>
 							</label>
 						</div>
 
@@ -70,9 +62,17 @@ const Active = () => {
 								<p>5 items left</p>
 								<div className="todo-type">
 									<ul>
-										<li className="active">All</li>
-										<li>Active</li>
-										<li>Completed</li>
+										<li>
+											<Link to={"/"}>All</Link>
+										</li>
+										<li>
+											<Link to={"/active"} style={{ color: "#445c99" }}>
+												Active
+											</Link>
+										</li>
+										<li>
+											<Link to={"/completed"}>Completed</Link>
+										</li>
 									</ul>
 								</div>
 								<p>Clear completed</p>
