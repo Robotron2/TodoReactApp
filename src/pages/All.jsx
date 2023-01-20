@@ -62,7 +62,7 @@ const All = () => {
 	}
 
 	const handleCheck = (todo) => {
-		console.log(todo)
+		// console.log(todo)
 		todo.isChecked = true
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
 		todoCounter()
@@ -79,7 +79,7 @@ const All = () => {
 		setAllTodos(undeletedTodos)
 		todoCounter()
 
-		console.log(undeletedTodos)
+		// console.log(undeletedTodos)
 	}
 
 	const handleClearCheck = () => {
@@ -95,7 +95,10 @@ const All = () => {
 		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
 		let leftTodos = allItems.filter((todo) => todo.isChecked === false)
 
-		console.log(leftTodos.length)
+		// console.log(leftTodos.length)
+		if (leftTodos.length === 0) {
+			setIsEmpty(true)
+		}
 		setCounter(leftTodos.length)
 	}
 
