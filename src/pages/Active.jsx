@@ -7,24 +7,27 @@ import TodoHeader from "../components/TodoHeader"
 const Active = () => {
 	const [isActive, setIsActive] = useState([])
 	const [notActive, setNotActive] = useState(false)
-	let activeTodos = JSON.parse(localStorage.getItem("TodoLists"))
+	// let activeTodos = JSON.parse(localStorage.getItem("TodoLists"))
 
 	const checkActive = () => {
-		let activeTodos = JSON.parse(localStorage.getItem("TodoLists")).filter((todos) => todos.isChecked === false)
-		if (activeTodos.length === 0) {
-			setNotActive(true)
-		} else {
-			setIsActive(activeTodos)
+		if (JSON.parse(localStorage.getItem("TodoLists")) !== null) {
+			let activeTodos = JSON.parse(localStorage.getItem("TodoLists")).filter((todos) => todos.isChecked === false)
+
+			if (activeTodos.length === 0) {
+				setNotActive(true)
+			} else {
+				setIsActive(activeTodos)
+			}
 		}
 	}
 
-	const handleCheck = (todo) => {
-		// console.log(todo)
-		todo.isChecked = true
-		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
-		todoCounter()
-		navigate("/")
-	}
+	// const handleCheck = (todo) => {
+	// 	// console.log(todo)
+	// 	todo.isChecked = true
+	// 	localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+	// 	todoCounter()
+	// 	navigate("/")
+	// }
 
 	const handleDelete = (id) => {
 		console.log(id)
