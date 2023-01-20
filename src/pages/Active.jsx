@@ -7,6 +7,7 @@ import TodoHeader from "../components/TodoHeader"
 const Active = () => {
 	const [isActive, setIsActive] = useState([])
 	const [notActive, setNotActive] = useState(false)
+	let activeTodos = JSON.parse(localStorage.getItem("TodoLists"))
 
 	const checkActive = () => {
 		let activeTodos = JSON.parse(localStorage.getItem("TodoLists")).filter((todos) => todos.isChecked === false)
@@ -15,6 +16,14 @@ const Active = () => {
 		} else {
 			setIsActive(activeTodos)
 		}
+	}
+
+	const handleCheck = (todo) => {
+		// console.log(todo)
+		todo.isChecked = true
+		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+		todoCounter()
+		navigate("/")
 	}
 
 	const handleDelete = (id) => {
@@ -81,9 +90,17 @@ const Active = () => {
 							<div className="todo-input mobile">
 								<div className="mobile-todo-type">
 									<ul>
-										<li className="active">All</li>
-										<li>Active</li>
-										<li>Completed</li>
+										<li>
+											<Link to={"/"}>All</Link>
+										</li>
+										<li>
+											<Link to={"/active"} style={{ color: "#445c99" }}>
+												Active
+											</Link>
+										</li>
+										<li>
+											<Link to={"/completed"}>Completed</Link>
+										</li>
 									</ul>
 								</div>
 							</div>

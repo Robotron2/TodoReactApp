@@ -93,11 +93,12 @@ const All = () => {
 
 	const todoCounter = () => {
 		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
-		let leftTodos = allItems.filter((todo) => todo.isChecked === false)
+		if (allItems !== null) {
+			let leftTodos = allItems.filter((todo) => todo.isChecked === false)
+			setCounter(leftTodos.length)
+		}
 
 		// console.log(leftTodos.length)
-
-		setCounter(leftTodos.length)
 	}
 
 	useEffect(() => {
