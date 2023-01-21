@@ -3,6 +3,7 @@ import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+
 import TodoHeader from "../components/TodoHeader"
 
 const All = () => {
@@ -31,6 +32,15 @@ const All = () => {
 	const handleClick = () => {
 		//handleClick Creates a newTodo Item
 
+		let today = new Date()
+		let options = {
+			weekday: "long",
+			// year: "numeric",
+			month: "long",
+			day: "numeric"
+		}
+		let day = today.toLocaleDateString("en-US", options)
+
 		if (todoContent !== "") {
 			let filterContent = allTodos.filter((todo) => todo.todoTitle === todoContent)
 			// console.log(filterContent.length)
@@ -41,6 +51,7 @@ const All = () => {
 				let newTodo = {
 					todoTitle: todoContent,
 					id: Math.floor(Math.random() * 1024),
+					day,
 					isChecked
 				}
 
@@ -61,10 +72,11 @@ const All = () => {
 		}
 	}
 
-	const handleCheck = (todo) => {
+	const handleCheck = async (todo) => {
 		// console.log(todo)
 		todo.isChecked = true
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+		// completedTodos = await localStorage
 		todoCounter()
 		navigate("/")
 	}
