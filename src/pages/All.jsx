@@ -7,6 +7,14 @@ import { Link, useNavigate } from "react-router-dom"
 import TodoHeader from "../components/TodoHeader"
 
 const All = () => {
+	let today = new Date()
+	let options = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric"
+	}
+
 	const navigate = useNavigate()
 	// const [isEmpty, setIsEmpty] = useState(true)
 	const [isEmpty, setIsEmpty] = useState(true)
@@ -32,13 +40,6 @@ const All = () => {
 	const handleClick = () => {
 		//handleClick Creates a newTodo Item
 
-		let today = new Date()
-		let options = {
-			weekday: "long",
-			year: "numeric",
-			month: "long",
-			day: "numeric"
-		}
 		let day = today.toLocaleDateString("en-US", options)
 
 		if (todoContent !== "") {
@@ -84,11 +85,16 @@ const All = () => {
 	}
 
 	const checkCompletedTodos = () => {
+		let todaysDate = today.toLocaleDateString("en-US", options)
+
 		let getCompletedTodos = JSON.parse(localStorage.getItem("TodoLists"))
 		if (getCompletedTodos !== null) {
 			let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
 			if (completedTodos.length !== 0) {
-				localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+				let sortTodo = completedTodos.filter((currentTodo) => currentTodo.day === todaysDate)
+				console.log(sortTodo)
+
+				// localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
 			}
 			console.log(completedTodos)
 		}
