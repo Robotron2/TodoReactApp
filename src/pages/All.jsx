@@ -86,18 +86,31 @@ const All = () => {
 
 	const checkCompletedTodos = () => {
 		let todaysDate = today.toLocaleDateString("en-US", options)
+		let completedTodos
 
 		let getCompletedTodos = JSON.parse(localStorage.getItem("TodoLists"))
 		if (getCompletedTodos !== null) {
-			let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
+			completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
 			if (completedTodos.length !== 0) {
 				let sortTodo = completedTodos.filter((currentTodo) => currentTodo.day === todaysDate)
 				if (sortTodo.length !== 0) {
 					localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+					console.log(sortTodo)
+				} else if (sortTodo.length === 0) {
+					localStorage.removeItem("CompletedTodos")
+					completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
+					localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+
+					// let previousTodos = JSON.parse(localStorage.getItem("CompletedTodos"))
+					// if ( previousTodos !== null && previousTodos.length !== 0 ) {
+					//     localStorage.removeItem("CompletedTodos")
+
+					// }
+					console.log(sortTodo)
 				}
 				// console.log(sortTodo)
 			}
-			console.log(completedTodos)
+			// console.log(completedTodos)
 		}
 	}
 
