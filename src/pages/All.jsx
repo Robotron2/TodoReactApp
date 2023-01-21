@@ -85,8 +85,13 @@ const All = () => {
 
 	const checkCompletedTodos = () => {
 		let getCompletedTodos = JSON.parse(localStorage.getItem("TodoLists"))
-		let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
-		console.log(completedTodos)
+		if (getCompletedTodos !== null) {
+			let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
+			if (completedTodos.length !== 0) {
+				localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+			}
+			console.log(completedTodos)
+		}
 	}
 
 	const handleDelete = (id) => {
