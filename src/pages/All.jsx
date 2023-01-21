@@ -35,7 +35,7 @@ const All = () => {
 		let today = new Date()
 		let options = {
 			weekday: "long",
-			// year: "numeric",
+			year: "numeric",
 			month: "long",
 			day: "numeric"
 		}
@@ -72,13 +72,21 @@ const All = () => {
 		}
 	}
 
-	const handleCheck = async (todo) => {
-		// console.log(todo)
+	const handleCheck = (todo) => {
 		todo.isChecked = true
+
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
+
+		// console.log(todo)
 		// completedTodos = await localStorage
 		todoCounter()
 		navigate("/")
+	}
+
+	const checkCompletedTodos = () => {
+		let getCompletedTodos = JSON.parse(localStorage.getItem("TodoLists"))
+		let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
+		console.log(completedTodos)
 	}
 
 	const handleDelete = (id) => {
@@ -117,6 +125,10 @@ const All = () => {
 		checkLocalStorage()
 	}, [todoContent])
 
+	useEffect(() => {
+		checkCompletedTodos()
+	})
+
 	return (
 		<div>
 			<div className="gradient"></div>
@@ -146,14 +158,14 @@ const All = () => {
 										<div className="todo-border" key={index + 1}>
 											<div className="todos">
 												{!todo.isChecked && (
-													<label className="container" onClick={() => handleCheck(todo)}>
-														<input type="checkbox" />
+													<label className="container">
+														<input type="checkbox" onClick={() => handleCheck(todo)} />
 														<span className="checkmark"></span>
 													</label>
 												)}
 												{todo.isChecked && (
-													<label className="container" onClick={() => handleCheck(todo)}>
-														<input type="checkbox" disabled />
+													<label className="container">
+														<input type="checkbox" disabled onClick={() => handleCheck(todo)} />
 														<span className="checkmark"></span>
 													</label>
 												)}
