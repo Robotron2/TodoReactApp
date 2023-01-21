@@ -92,9 +92,10 @@ const All = () => {
 			let completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
 			if (completedTodos.length !== 0) {
 				let sortTodo = completedTodos.filter((currentTodo) => currentTodo.day === todaysDate)
-				console.log(sortTodo)
-
-				// localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+				if (sortTodo.length !== 0) {
+					localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
+				}
+				// console.log(sortTodo)
 			}
 			console.log(completedTodos)
 		}
