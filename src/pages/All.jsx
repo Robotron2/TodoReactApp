@@ -123,6 +123,13 @@ const All = () => {
 		localStorage.setItem("TodoLists", JSON.stringify(undeletedTodos))
 		setAllTodos(undeletedTodos)
 		todoCounter()
+		let emptyTodoItems = JSON.parse(localStorage.getItem("TodoLists"))
+		if (emptyTodoItems.length === 0) {
+			setIsEmpty(true)
+		}
+
+		// setIsEmpty(true)
+		// navigate("/")
 
 		// console.log(undeletedTodos)
 	}

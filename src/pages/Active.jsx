@@ -23,15 +23,6 @@ const Active = () => {
 		}
 	}
 
-	const handleDelete = (id) => {
-		console.log(id)
-	}
-
-	const handleCheck = (todo) => {
-		console.log(todo)
-		// todo.isChecked = true
-	}
-
 	const completedTodoCounter = () => {
 		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
 		if (allItems !== null) {
@@ -72,18 +63,9 @@ const Active = () => {
 									return (
 										<div className="todo-border" key={activeTodo.id}>
 											<div className="todos">
-												<label className="container" onClick={() => handleCheck(activeTodo)}>
-													<input type="checkbox" />
-													<span className="checkmark"></span>
-												</label>
-
-												{/* <label className="container">
-													<input type="checkbox" />
-													<span className="checkmark"></span>
-												</label> */}
 												<p className="todo-item">{activeTodo.todoTitle}</p>
 												<span className="remove-todo">
-													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(activeTodo.id)} />
+													<i className="fa fa-trash-o" aria-hidden="true" />
 												</span>
 											</div>
 										</div>
@@ -106,7 +88,6 @@ const Active = () => {
 										</li>
 									</ul>
 								</div>
-								<p>Clear completed</p>
 							</div>
 
 							<div className="todo-input mobile">

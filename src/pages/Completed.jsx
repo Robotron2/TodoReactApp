@@ -82,7 +82,6 @@ const Completed = () => {
 											</li>
 										</ul>
 									</div>
-									<p>Clear completed</p>
 								</div>
 							)}
 						</div>
