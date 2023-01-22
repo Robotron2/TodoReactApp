@@ -1,10 +1,10 @@
 import React from "react"
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import TodoHeader from "../components/TodoHeader"
 
 const Completed = () => {
+	const [counter, setCounter] = useState(0)
 	const [isEmpty, setIsEmpty] = useState(false)
 
 	const [completedTodos, setCompletedTodos] = useState([])
@@ -19,8 +19,17 @@ const Completed = () => {
 		}
 	}
 
+	const completedTodoCounter = () => {
+		let allItems = JSON.parse(localStorage.getItem("CompletedTodos"))
+		if (allItems !== null) {
+			let completedTodos = allItems.filter((todo) => todo.isChecked === true)
+			setCounter(completedTodos.length)
+		}
+	}
+
 	useEffect(() => {
 		renderCompletedList()
+		completedTodoCounter()
 	}, [])
 
 	return (
@@ -47,7 +56,7 @@ const Completed = () => {
 							{!isEmpty &&
 								completedTodos.map((todo, index) => {
 									return (
-										<div className="todo-border" key={index + 1}>
+										<div className="todo-border" key={todo.id}>
 											<div className="todos">
 												<p className="todo-item">{todo.todoTitle}</p>
 											</div>
@@ -57,12 +66,20 @@ const Completed = () => {
 
 							{!isEmpty && (
 								<div className="mini-nav">
-									<p>5 items left</p>
+									<p>{counter} items</p>
 									<div className="todo-type">
 										<ul>
-											<li>All</li>
-											<li>Active</li>
-											<li className="active">Completed</li>
+											<li>
+												<Link to={"/"}>All</Link>
+											</li>
+											<li>
+												<Link to={"/active"}>Active</Link>
+											</li>
+											<li>
+												<Link to={"/completed"} style={{ color: "#445c99" }}>
+													Completed
+												</Link>
+											</li>
 										</ul>
 									</div>
 									<p>Clear completed</p>
@@ -74,9 +91,17 @@ const Completed = () => {
 							<div className="todo-input mobile">
 								<div className="mobile-todo-type">
 									<ul>
-										<li>All</li>
-										<li>Active</li>
-										<li className="active">Completed</li>
+										<li>
+											<Link to={"/"}>All</Link>
+										</li>
+										<li>
+											<Link to={"/active"}>Active</Link>
+										</li>
+										<li>
+											<Link to={"/completed"} style={{ color: "#445c99" }}>
+												Completed
+											</Link>
+										</li>
 									</ul>
 								</div>
 							</div>

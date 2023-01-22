@@ -142,8 +142,6 @@ const All = () => {
 			let leftTodos = allItems.filter((todo) => todo.isChecked === false)
 			setCounter(leftTodos.length)
 		}
-
-		// console.log(leftTodos.length)
 	}
 
 	useEffect(() => {
