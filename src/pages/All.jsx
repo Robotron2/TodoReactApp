@@ -16,12 +16,10 @@ const All = () => {
 	}
 
 	const navigate = useNavigate()
-	// const [isEmpty, setIsEmpty] = useState(true)
 	const [isEmpty, setIsEmpty] = useState(true)
 	const [counter, setCounter] = useState(0)
 	const [todoContent, setTodoContent] = useState("")
 	const [allTodos, setAllTodos] = useState([])
-	// const [checkIsChecked, setCheckIsChecked] = useState(false)
 	let isChecked = false
 
 	const checkLocalStorage = () => {
@@ -38,8 +36,6 @@ const All = () => {
 	}
 
 	const handleClick = () => {
-		//handleClick Creates a newTodo Item
-
 		let day = today.toLocaleDateString("en-US", options)
 
 		if (todoContent !== "") {
@@ -79,7 +75,7 @@ const All = () => {
 		localStorage.setItem("TodoLists", JSON.stringify(allTodos))
 
 		// console.log(todo)
-		// completedTodos = await localStorage
+
 		todoCounter()
 		navigate("/")
 	}
@@ -101,12 +97,7 @@ const All = () => {
 					completedTodos = getCompletedTodos.filter((todoObject) => todoObject.isChecked === true)
 					localStorage.setItem("CompletedTodos", JSON.stringify(completedTodos))
 
-					// let previousTodos = JSON.parse(localStorage.getItem("CompletedTodos"))
-					// if ( previousTodos !== null && previousTodos.length !== 0 ) {
-					//     localStorage.removeItem("CompletedTodos")
-
-					// }
-					console.log(sortTodo)
+					// console.log(sortTodo)
 				}
 				// console.log(sortTodo)
 			}
@@ -127,9 +118,6 @@ const All = () => {
 		if (emptyTodoItems.length === 0) {
 			setIsEmpty(true)
 		}
-
-		// setIsEmpty(true)
-		// navigate("/")
 
 		// console.log(undeletedTodos)
 	}
@@ -168,9 +156,6 @@ const All = () => {
 						<TodoHeader />
 						<div className="todo-input ">
 							<input type="text" placeholder="Write a to-do" className="text-input" onChange={handleChange} value={todoContent} />
-							{/* <label className="container" onClick={handleClick}>
-								<i className="fa-solid fa-plus"></i>
-							</label> */}
 							<label className="container" onClick={handleClick}>
 								<i className="fa-solid fa-plus">+ </i>
 							</label>
@@ -202,13 +187,8 @@ const All = () => {
 												{!todo.isChecked && <p className="todo-item">{todo.todoTitle}</p>}
 												{todo.isChecked && <p className="todo-item strike-through">{todo.todoTitle}</p>}
 
-												{/* <span className="remove-todo">
-													<i className="fa fa-trash-o" aria-hidden="true" onClick={() => handleDelete(index)} />
-												</span> */}
 												<span className="remove-todo">
-													<i aria-hidden="true" onClick={() => handleDelete(todo.id)}>
-														X
-													</i>
+													<i aria-hidden="true" onClick={() => handleDelete(todo.id)}></i>
 												</span>
 											</div>
 										</div>
