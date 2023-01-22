@@ -7,6 +7,7 @@ import TodoHeader from "../components/TodoHeader"
 const Active = () => {
 	const [isActive, setIsActive] = useState([])
 	const [notActive, setNotActive] = useState(false)
+	const [counter, setCounter] = useState(0)
 
 	// let activeTodos = JSON.parse(localStorage.getItem("TodoLists"))
 
@@ -22,14 +23,6 @@ const Active = () => {
 		}
 	}
 
-	// const handleCheck = (todo) => {
-	// 	// console.log(todo)
-	// 	todo.isChecked = true
-	// 	localStorage.setItem("TodoLists", JSON.stringify(allTodos))
-	// 	todoCounter()
-	// 	navigate("/")
-	// }
-
 	const handleDelete = (id) => {
 		console.log(id)
 	}
@@ -39,8 +32,17 @@ const Active = () => {
 		// todo.isChecked = true
 	}
 
+	const completedTodoCounter = () => {
+		let allItems = JSON.parse(localStorage.getItem("TodoLists"))
+		if (allItems !== null) {
+			let activeTodos = allItems.filter((todo) => todo.isChecked === false)
+			setCounter(activeTodos.length)
+		}
+	}
+
 	useEffect(() => {
 		checkActive()
+		completedTodoCounter()
 	}, [])
 
 	return (
@@ -53,12 +55,18 @@ const Active = () => {
 						<div className="todo-input ">
 							<input type="text" placeholder="Write a to-do" className="text-input" disabled />
 							<label className="container">
-								<i className="fa-solid fa-plus">+</i>
+								<i className="fa-solid fa-plus"></i>
 							</label>
 						</div>
 
 						<div className="todos-container">
-							{notActive && <div>Hello, there are no active todos currently</div>}
+							{notActive && (
+								<div style={{ padding: "10px 0" }}>
+									<center>
+										<p>Hello, there are no active todos currently</p>
+									</center>
+								</div>
+							)}
 							{!notActive &&
 								isActive.map((activeTodo) => {
 									return (
@@ -82,7 +90,7 @@ const Active = () => {
 									)
 								})}
 							<div className="mini-nav">
-								<p>5 items left</p>
+								<p>{counter} active</p>
 								<div className="todo-type">
 									<ul>
 										<li>
