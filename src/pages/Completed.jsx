@@ -54,11 +54,14 @@ const Completed = () => {
 								</div>
 							)}
 							{!isEmpty &&
-								completedTodos.map((todo, index) => {
+								completedTodos.map((todo) => {
 									return (
 										<div className="todo-border" key={todo.id}>
 											<div className="todos">
-												<p className="todo-item">{todo.todoTitle}</p>
+												<p className="todo-item">
+													{" "}
+													<span className="star">*</span> {todo.todoTitle}
+												</p>
 											</div>
 										</div>
 									)
