@@ -59,7 +59,6 @@ const Completed = () => {
 										<div className="todo-border" key={todo.id}>
 											<div className="todos">
 												<p className="todo-item">
-													{" "}
 													<span className="star">*</span> {todo.todoTitle}
 												</p>
 											</div>
