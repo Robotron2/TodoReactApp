@@ -42,7 +42,7 @@ const Active = () => {
 			<div className="main-container">
 				<div className="solid-color-container" id="solidActive">
 					<div className="todo-main">
-						<TodoHeader />
+						<TodoHeader title={"TODO"} />
 						<div className="todo-input ">
 							<input type="text" placeholder="Your active todos" className="text-input" disabled />
 							<label className="container">

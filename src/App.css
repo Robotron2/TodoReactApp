@@ -471,3 +471,8 @@ body {
 		display: flex;
 	}
 }
+
+h4 > a {
+	color: #fff;
+	text-decoration: none;
+}

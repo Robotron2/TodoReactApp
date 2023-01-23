@@ -153,7 +153,7 @@ const All = () => {
 			<div className="main-container">
 				<div className="solid-color-container" id="solidAll">
 					<div className="todo-main">
-						<TodoHeader />
+						<TodoHeader title={"TODO"} />
 						<div className="todo-input ">
 							<input type="text" placeholder="Write a to-do" className="text-input" onChange={handleChange} value={todoContent} />
 							<label className="container" onClick={handleClick}>

@@ -38,7 +38,7 @@ const Completed = () => {
 			<div className="main-container">
 				<div className="solid-color-container" id="solidCompleted">
 					<div className="todo-main">
-						<TodoHeader />
+						<TodoHeader title={"HOME"} />
 
 						<div className="todo-input ">
 							<input type="text" placeholder="Input Disabled" className="text-input" disabled />
