@@ -188,7 +188,7 @@ const All = () => {
 												{todo.isChecked && <p className="todo-item strike-through">{todo.todoTitle}</p>}
 
 												<span className="remove-todo">
-													<i aria-hidden="true" onClick={() => handleDelete(todo.id)}></i>
+													<i aria-hidden="true" onClick={() => handleDelete(todo.id)} className="fa fa-trash"></i>
 												</span>
 											</div>
 										</div>
