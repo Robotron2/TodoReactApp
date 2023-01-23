@@ -7,9 +7,9 @@ const TodoHeader = () => {
 			<div>
 				<h4>TODO</h4>
 			</div>
-			<div className="theme-btn">
+			{/* <div className="theme-btn">
 				<DarkMode />
-			</div>
+			</div> */}
 		</div>
 	)
 }

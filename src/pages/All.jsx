@@ -151,13 +151,13 @@ const All = () => {
 		<div>
 			<div className="gradient"></div>
 			<div className="main-container">
-				<div className="solid-color-container">
+				<div className="solid-color-container" id="solidAll">
 					<div className="todo-main">
 						<TodoHeader />
 						<div className="todo-input ">
 							<input type="text" placeholder="Write a to-do" className="text-input" onChange={handleChange} value={todoContent} />
 							<label className="container" onClick={handleClick}>
-								<i className="fa-solid fa-plus">+ </i>
+								<i className="fa-solid fa-plus"> </i>
 							</label>
 						</div>
 

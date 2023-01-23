@@ -36,7 +36,7 @@ const Completed = () => {
 		<div>
 			<div className="gradient"></div>
 			<div className="main-container">
-				<div className="solid-color-container">
+				<div className="solid-color-container" id="solidCompleted">
 					<div className="todo-main">
 						<TodoHeader />
 

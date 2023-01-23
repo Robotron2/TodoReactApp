@@ -40,11 +40,11 @@ const Active = () => {
 		<div>
 			<div className="gradient"></div>
 			<div className="main-container">
-				<div className="solid-color-container">
+				<div className="solid-color-container" id="solidActive">
 					<div className="todo-main">
 						<TodoHeader />
 						<div className="todo-input ">
-							<input type="text" placeholder="Write a to-do" className="text-input" disabled />
+							<input type="text" placeholder="Your active todos" className="text-input" disabled />
 							<label className="container">
 								<i className="fa-solid fa-plus"></i>
 							</label>
@@ -63,10 +63,10 @@ const Active = () => {
 									return (
 										<div className="todo-border" key={activeTodo.id}>
 											<div className="todos">
-												<p className="todo-item">{activeTodo.todoTitle}</p>
-												<span className="remove-todo">
-													<i className="fa fa-trash-o" aria-hidden="true" />
-												</span>
+												<p className="todo-item">
+													{" "}
+													<span className="star">*</span> {activeTodo.todoTitle}
+												</p>
 											</div>
 										</div>
 									)

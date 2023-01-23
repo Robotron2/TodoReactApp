@@ -6,6 +6,8 @@ const DarkMode = () => {
 	const [checkLightTheme, setCheckLightTheme] = useState(true)
 
 	const body = document.body
+	console.log(body)
+
 	let clickedClass = "clicked"
 	let lightTheme = "light"
 	let darkTheme = "dark"
@@ -39,9 +41,9 @@ const DarkMode = () => {
 
 	return (
 		<div className={theme === "dark" ? clickedClass : ""} onClick={(e) => switchTheme(e)}>
-			{!checkLightTheme && <i className="fa fa-moon-o" aria-hidden="true"></i>}
+			{checkLightTheme && <i className="fa fa-moon-o" aria-hidden="true"></i>}
 
-			{checkLightTheme && <i className="fa fa-sun-o" aria-hidden="true"></i>}
+			{!checkLightTheme && <i className="fa fa-sun-o" aria-hidden="true"></i>}
 		</div>
 	)
 }
